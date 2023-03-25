@@ -22,15 +22,30 @@ mkdir edu-http-classic-gomoku-js
 cd edu-http-classic-gomoku-js
 npm init -y
 touch {service.js,server.js}
-mkdir public
 touch .env
-touch ./public/{index.html,index.js,index.css}
 npm pkg set main="service.js"
 npm pkg set scripts.dev="nodemon service.js"
 npm install express
 npm install path
 npm install serve-favicon
 npm install -D nodemon 
+```
+
+### Add static frontend
+
+```bash
+mkdir public
+touch ./public/{index.html,index.js,index.css}
+```
+
+### Add backend
+
+```bash
+mkdir {routes,controllers,domain}
+touch ./routes/gomoku_routes.js
+touch ./controllers/gomoku_controller.js
+touch ./routes/gomoku_routes.js
+touch ./domain/gomoku.js
 ```
 
 ### Add testing
