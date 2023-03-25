@@ -29,6 +29,7 @@ npm install express
 npm install path
 npm install serve-favicon
 npm install -D nodemon 
+curl https://gomokuonline.com/favicon.ico -o ./public/favicon.ico
 ```
 
 ### Add static frontend
