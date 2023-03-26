@@ -60,6 +60,7 @@ npm install -D jest
 npm install -D jest-runner-groups
 npm install -D supertest
 npm pkg set scripts.test="jest  --group=-component --group=-integration"
+npm pkg set scripts.test:watch="jest --watchAll=true --group=-component --group=-integration"
 npm pkg set scripts.test:component="jest --group=component"
 npm pkg set scripts.test:integration="jest --group=integration"
 npm pkg set jest.runner="groups"
