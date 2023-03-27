@@ -28,6 +28,7 @@ npm pkg set scripts.dev="nodemon service.js"
 npm install express
 npm install path
 npm install serve-favicon
+npm install uuid
 npm install -D nodemon 
 curl https://gomokuonline.com/favicon.ico -o ./public/favicon.ico
 ```
@@ -59,6 +60,7 @@ touch .env.test
 npm install -D jest
 npm install -D jest-runner-groups
 npm install -D supertest
+npm install -D @faker-js/faker
 npm pkg set scripts.test="jest  --group=-component --group=-integration"
 npm pkg set scripts.test:watch="jest --watchAll=true --group=-component --group=-integration"
 npm pkg set scripts.test:component="jest --group=component"
