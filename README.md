@@ -30,14 +30,17 @@ npm install path
 npm install serve-favicon
 npm install uuid
 npm install -D nodemon 
-curl https://gomokuonline.com/favicon.ico -o ./public/favicon.ico
+curl https://raw.githubusercontent.com/miwashi-edu/edu-http-classic-gomoku-js/main/resources/favicon.ico -o ./public/favicon.ico
 ```
 
 ### Add static frontend
 
 ```bash
 mkdir public
+mkdir public/img
 touch ./public/{index.html,index.js,index.css}
+curl https://raw.githubusercontent.com/miwashi-edu/edu-http-classic-gomoku-js/main/resources/black.png -o ./public/img/black.png
+curl https://raw.githubusercontent.com/miwashi-edu/edu-http-classic-gomoku-js/main/resources/white.png -o ./public/img/white.png
 ```
 
 ### Add backend
