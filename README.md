@@ -2,6 +2,24 @@
 
 ## Förväntad tid 6:30 minuter, inklusive skriva server.js utantill.
 
+
+```mermaid
+---
+title: Game
+---
+stateDiagram-v2
+    [*] --> Waiting
+    Waiting --> [*]
+    Waiting --> Playing
+    state Playing {
+        Incremented --> Incremented
+        Incremented --> Ended
+        Incremented --> Cancelled
+    }
+    Cancelled --> [*]
+    Ended --> [*]
+```
+
 ## Info
 
 [serve-favicon](https://expressjs.com/en/resources/middleware/serve-favicon.html)  
@@ -82,18 +100,4 @@ curl -L https://gist.github.com/miwashiab/3378fc2e4ab5d2691fa5978822721796/raw/.
 curl https://www.jensenyh.se/favicon.ico -o ./public/favicon.ico
 curl -L https://gist.github.com/miwashiab/f58042d997beb7983f91152c7b555529/raw/server.js -o server.js
 curl -L https://gist.github.com/miwashiab/44bb4bc1d82f0952ffbf6c55fbd63ec8/raw/index.html -o  ./public/index.html
-```
-
-```mermaid
----
-title: Game
----
-stateDiagram-v2
-    [*] --> Created
-    Created --> [*]
-    Created --> Forwarded
-    Forwarded --> Ended
-    Forwarded --> Cancelled
-    Cancelled --> [*]
-    Ended --> [*]
 ```
