@@ -84,3 +84,16 @@ curl -L https://gist.github.com/miwashiab/f58042d997beb7983f91152c7b555529/raw/s
 curl -L https://gist.github.com/miwashiab/44bb4bc1d82f0952ffbf6c55fbd63ec8/raw/index.html -o  ./public/index.html
 ```
 
+```mermaid
+---
+title: Game
+---
+stateDiagram-v2
+    [*] --> Created
+    Created --> [*]
+    Created --> Forwarded
+    Forwarded --> Ended
+    Forwarded --> Cancelled
+    Cancelled --> [*]
+    Ended --> [*]
+```
