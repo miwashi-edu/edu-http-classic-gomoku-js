@@ -9,12 +9,12 @@ title: Game
 ---
 stateDiagram-v2
     [*] --> Waiting
-    Waiting --> [*]
-    Waiting --> Playing
+    Waiting --> [*] : create game
+    Waiting --> Playing : add player
     state Playing {
-        Incremented --> Incremented
-        Incremented --> Ended
-        Incremented --> Cancelled
+        Incremented --> Incremented : play
+        Incremented --> Ended : stones in row > 5
+        Incremented --> Cancelled : end
     }
     Cancelled --> [*]
     Ended --> [*]
