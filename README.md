@@ -16,8 +16,8 @@ title: Game
 ---
 stateDiagram-v2
     [*] --> Waiting
-    Waiting --> [*] : create game
-    Waiting --> Playing : add player
+    Waiting --> [Playing] : create game
+    Waiting --> Waiting : add player
     state Playing {
         Incremented --> Incremented : play
         Incremented --> Ended : stones of same colour in a row > 5
