@@ -30,3 +30,30 @@ stateDiagram-v2
 ```
 
 ## Instructions
+
+We can now write our first unit test derived from the state changes.
+
+### ./__tests__/unit_tests.js
+
+```js
+/**
+ * @group unit
+ */
+
+const gameHandler = require('../domain/gomoku.js'); // Objekt under test
+
+/**
+ * Vårt första whitebox-test utifrån tillståndsförändringar i 
+ * tillståndsdiagrammet för game.
+ */
+describe('given gameHandler', () => {
+  describe('when using ', () => {
+    it('should have expected properties', () => {
+      expect(gameHandler).toHaveProperty('play');
+      expect(gameHandler).toHaveProperty('addPlayer');
+      expect(gameHandler).toHaveProperty('createGame');
+    });
+  });
+});
+```
+
