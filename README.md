@@ -1,32 +1,18 @@
 # edu-http-classic-gomoku-js
 
-## Förväntad tid 6:30 minuter, inklusive skriva server.js utantill.
-
-
-```mermaid
----
-title: Game
----
-stateDiagram-v2
-    [*] --> Waiting
-    Waiting --> [*] : create game
-    Waiting --> Playing : add player
-    state Playing {
-        Incremented --> Incremented : play
-        Incremented --> Ended : stones in row > 5
-        Incremented --> Cancelled : end
-    }
-    Cancelled --> [*]
-    Ended --> [*]
-```
+## Expected time 6:30 minutest
 
 ## Info
 
 [serve-favicon](https://expressjs.com/en/resources/middleware/serve-favicon.html)  
-[nodemon](https://www.npmjs.com/package/nodemon)
-[jest](https://www.npmjs.com/package/jest)
-[path](https://www.npmjs.com/package/path)
-[express](https://www.npmjs.com/package/express)
+[path](https://www.npmjs.com/package/path)  
+[express](https://www.npmjs.com/package/express)  
+[uuid](https://www.npmjs.com/package/uuid)  
+[nodemon](https://www.npmjs.com/package/nodemon)  
+[jest](https://www.npmjs.com/package/jest)  
+[jest-runner-groups](https://www.npmjs.com/package/@euklios/jest-runner-groups)  
+[supertest](https://www.npmjs.com/package/supertest)  
+[faker](https://www.npmjs.com/package/@faker-js/faker)
 
 ## Instructions
 
