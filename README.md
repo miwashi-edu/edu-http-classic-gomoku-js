@@ -77,13 +77,8 @@ npm pkg set jest.runner="groups"
 ### Create repository
 
 ```bash
+git init
 curl -L https://gist.github.com/miwashiab/3378fc2e4ab5d2691fa5978822721796/raw/.gitignore -o .gitignore
-```
-
-### Get code
-
-```bash
-curl https://www.jensenyh.se/favicon.ico -o ./public/favicon.ico
-curl -L https://gist.github.com/miwashiab/f58042d997beb7983f91152c7b555529/raw/server.js -o server.js
-curl -L https://gist.github.com/miwashiab/44bb4bc1d82f0952ffbf6c55fbd63ec8/raw/index.html -o  ./public/index.html
+git add .
+git commit -m "Initial Commit"
 ```
