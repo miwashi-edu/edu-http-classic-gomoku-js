@@ -15,16 +15,18 @@ To break down the story we are going to use a state diagram. Here is the user st
 title: Game
 ---
 stateDiagram-v2
-    [*] --> Waiting
-    Waiting --> Playing : create game
-    Waiting --> Waiting : add player : number of players = 2
+    [*] --> Waiting : create game
+    Waiting --> Playing : start game
+    Waiting --> Waiting: add player 
     state Playing {
         Incremented --> Incremented : play
-        Incremented --> Ended : stones of same colour in a row > 5
-        Incremented --> Cancelled : end
+        Incremented --> Ended : win condition
+        Incremented --> Cancelled : player quit
+        Incremented --> Tie : no more moves
     }
     Cancelled --> [*]
     Ended --> [*]
+    Tie --> [*]
 ```
 
 ## Instructions
