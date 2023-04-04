@@ -16,7 +16,7 @@ title: Game
 ---
 stateDiagram-v2
     [*] --> Waiting : create game
-    Waiting --> Playing : start game
+    Waiting --> Playing : play
     Waiting --> Waiting: add player 
     state Playing {
         Incremented --> Incremented : play
