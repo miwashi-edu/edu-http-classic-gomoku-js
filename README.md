@@ -70,10 +70,13 @@ npm install -D jest-runner-groups
 npm install -D supertest
 npm install -D @faker-js/faker
 npm pkg set scripts.test="jest  --group=-component --group=-integration"
-npm pkg set scripts.test:watch="jest --watchAll=true --group=-component --group=-integration"
+npm pkg set scripts.test:watch="jest --watchAll=true --passWithNoTests --group=-component --group=-integration"
 npm pkg set scripts.test:component="jest --group=component"
 npm pkg set scripts.test:integration="jest --group=integration"
 npm pkg set jest.runner="groups"
+echo "/**" > ./__tests__/unit_tests.js&echo " * @group unit" >> ./__tests__/unit_tests.js&echo " */" >> ./__tests__/unit_tests.js
+echo "/**" > ./__tests__/component_tests.js&echo " * @group component" >> ./__tests__/component_tests.js&echo " */" >> ./__tests__/component_tests.js
+echo "/**" > ./__tests__/integration_tests.js&echo " * @group integration" >> ./__tests__/integration_tests.js&echo " */" >> ./__tests__/integration_tests.js
 ```
 ### Create repository
 
