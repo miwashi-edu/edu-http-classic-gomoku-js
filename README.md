@@ -56,4 +56,14 @@ describe('given gameHandler', () => {
   });
 });
 ```
+## Test it
 
+Open Visual Studio Code, write the test, and then fullfill the requriements from unit_test.js adding the code to gomoku.js that is missing.
+
+```bash
+code .
+npm run test:watch
+```
+
+
+```
