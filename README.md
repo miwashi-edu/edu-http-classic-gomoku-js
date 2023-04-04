@@ -24,6 +24,7 @@ cd ws
 rm -rf edu-http-classic-gomoku-js #Om den finns
 mkdir edu-http-classic-gomoku-js
 cd edu-http-classic-gomoku-js
+echo "# Gomoku" >> README.md
 npm init -y
 touch {service.js,server.js}
 touch .env
