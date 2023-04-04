@@ -86,3 +86,12 @@ curl -L https://gist.github.com/miwashiab/3378fc2e4ab5d2691fa5978822721796/raw/.
 git add .
 git commit -m "Initial Commit"
 ```
+
+### Test it
+
+The test might fail as unit_tests.js contains no tests.
+
+```bash
+code .
+npm run test:watch  
+```
