@@ -8,7 +8,8 @@ In this part we will attempt to find requrements for our value-objects. We use a
 
 ## Instructions
 
-[](./resources/mockup_1.png)!
+![mockup](./resources/mockup_1.png)
+
 
 ### Test it
 
