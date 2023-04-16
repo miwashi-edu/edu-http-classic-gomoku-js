@@ -10,81 +10,62 @@ Finally we also deduce that we also need a state attribute to respond to the end
 
 ## Instructions
 
-![mockup](./resources/mockup_1.png)
+```mermaid
 
-## ./__tests__/unit_tests.js
+sequenceDiagram
+    actor Player
+    participant Service
+    participant UserHandler
+    participant GameHandler
+    participant Gomoku
 
-```js
-/**
- * @group unit
- */
-
-const gameHandler = require('../domain/gomoku.js'); // Object under test
-
-/**
- * Test testing a game object returned by createGame has all
- * necessary attributes.
- */
-describe('given gameHandler', () => {
-  describe('when creating a game ', () => {
-    const game = gameHandler.createGame();
-    it('should have expected properties', () => {
-      expect(game).toHaveProperty('id'); //Id of game generated server side
-      expect(game).toHaveProperty('name'); // A name that is displayed
-      expect(game).toHaveProperty('round'); // Which round we currently play
-      expect(game).toHaveProperty('players'); // Players
-      expect(game).toHaveProperty('rows'); // How many rows our board has got
-      expect(game).toHaveProperty('cols'); // How many columns our board has got
-      expect(game).toHaveProperty('state'); // state of the game object = {playing, win1, win2, tie}
-    });
-  });
-});
-
-/**
- * Test testing a game object returned by addPlayer has all
- * necessary attributes.
- */
-describe('given gameHandler', () => {
-  describe('when adding player to a game ', () => {
-    const game = gameHandler.addPlayer();
-    it('should have expected properties', () => {
-      expect(game).toHaveProperty('id');
-      expect(game).toHaveProperty('name');
-      expect(game).toHaveProperty('round');
-      expect(game).toHaveProperty('player1');
-      expect(game).toHaveProperty('player2');
-      expect(game).toHaveProperty('player');
-      expect(game).toHaveProperty('state');
-    });
-  });
-});
-
-/**
- * Test testing a game object returned by playing a round has all
- * necessary attributes.
- */
-describe('given gameHandler', () => {
-  describe('when creating a game ', () => {
-    const game = gameHandler.play();
-    it('should have expected properties', () => {
-      expect(game).toHaveProperty('id');
-      expect(game).toHaveProperty('name');
-      expect(game).toHaveProperty('round');
-      expect(game).toHaveProperty('player1');
-      expect(game).toHaveProperty('player2');
-      expect(game).toHaveProperty('player');
-      expect(game).toHaveProperty('state');
-    });
-  });
-});
-
-```
-
-### Test it
-
-The test might fail as unit_tests.js contains no tests.
-
-```bash
-code .
-npm run test:watch  
+    Player->>Service: Identifies
+    activate Service
+    activate UserHandler
+    Service->>UserHandler: Identify
+    UserHandler-->>Service: Player Id
+    deactivate UserHandler
+    Service-->>Player: Player Id
+    deactivate Service
+    
+    Player->>Service: List Games
+    activate Service
+    Service->>GameHandler: List Games
+    activate GameHandler
+    GameHandler-->>Service: List of Games
+    deactivate GameHandler
+    Service-->>Player: List of games
+    deactivate Service
+    
+    activate Service
+    alt Choose game
+        Player->>Service: Find Game
+        Service->>GameHandler: Find Game by ID
+        activate GameHandler
+        GameHandler-->>Service: Selected Game
+        deactivate GameHandler
+    else Create Game
+        Player->>Service: New Game
+        Service->>GameHandler: Create Game
+        activate GameHandler
+        GameHandler-->>Service: Created Game
+        deactivate GameHandler
+    end
+    Service-->>Player: Game
+    deactivate Service
+    
+    activate Service
+    loop Until Finnished
+        Player->>Service: Play Game
+        Service->>GameHandler: Play
+        activate GameHandler
+        GameHandler->>Gomoku: isFinished?
+        activate Gomoku
+        Gomoku->>GameHandler: true/false
+        deactivate Gomoku
+        GameHandler->>Service: isFinished?
+        deactivate GameHandler
+        Service-->>Player: Incremented Game
+    end
+    deactivate Service
 ```
