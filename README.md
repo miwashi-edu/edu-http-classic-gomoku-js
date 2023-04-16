@@ -122,3 +122,11 @@ describe('given a gameHandler', () => {
 ```js
 ```
 
+## Test it
+
+Open Visual Studio Code, write the test, and then fullfill the requriements from the three tests.
+
+```bash
+code .
+npm run test:watch
+```
