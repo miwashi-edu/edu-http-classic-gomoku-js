@@ -89,6 +89,24 @@ git mv ./__tests__/unit_tests.js ./__tests__/game_handler_tests.js
 ### user_handler_tests.js
 
 ```js
+/**
+ * @group unit
+ */
+
+const gameHandler = require('../domain/game_handler.js'); // Objekt under test
+
+/**
+ * Tests added from sequence diagagram
+ */
+describe('given a gameHandler', () => {
+  describe('when using ', () => {
+    it('should have expected properties', () => {
+      expect(gameHandler).toHaveProperty('findGameById');
+      expect(gameHandler).toHaveProperty('saveGame');
+      expect(gameHandler).toHaveProperty('getGames');
+    });
+  });
+});
 ```
 ### game_handler_tests.js
 
