@@ -4,87 +4,80 @@
 
 ## Info
 
-[serve-favicon](https://expressjs.com/en/resources/middleware/serve-favicon.html)  
-[path](https://www.npmjs.com/package/path)  
-[express](https://www.npmjs.com/package/express)  
-[uuid](https://www.npmjs.com/package/uuid)  
-[nodemon](https://www.npmjs.com/package/nodemon)  
-[jest](https://www.npmjs.com/package/jest)  
-[jest-runner-groups](https://www.npmjs.com/package/@euklios/jest-runner-groups)  
-[supertest](https://www.npmjs.com/package/supertest)  
-[faker](https://www.npmjs.com/package/@faker-js/faker)
+In this part we will attempt to find requrements for our value-objects. We use a mockup of the game to try to determine what data is required to display a game trough it different states from create to end. We also assume that all methods will return a game object. 
+
+Finally we also deduce that we also need a state attribute to respond to the end states of the game (win/loose, tie).
 
 ## Instructions
 
-### Initialize project
+![mockup](./resources/mockup_1.png)
 
-```bash
-cd ~
-cd ws
-rm -rf edu-http-classic-gomoku-js #Om den finns
-mkdir edu-http-classic-gomoku-js
-cd edu-http-classic-gomoku-js
-echo "# Gomoku" >> README.md
-npm init -y
-touch {service.js,server.js}
-touch .env
-npm pkg set main="service.js"
-npm pkg set scripts.dev="nodemon service.js"
-npm install express
-npm install path
-npm install serve-favicon
-npm install uuid
-npm install -D nodemon 
-curl https://raw.githubusercontent.com/miwashi-edu/edu-http-classic-gomoku-js/main/resources/favicon.ico -o ./public/favicon.ico
-```
+## ./__tests__/unit_tests.js
 
-### Add static frontend
+```js
+/**
+ * @group unit
+ */
 
-```bash
-mkdir public
-mkdir public/img
-touch ./public/{index.html,index.js,index.css}
-curl https://raw.githubusercontent.com/miwashi-edu/edu-http-classic-gomoku-js/main/resources/black.png -o ./public/img/black.png
-curl https://raw.githubusercontent.com/miwashi-edu/edu-http-classic-gomoku-js/main/resources/white.png -o ./public/img/white.png
-```
+const gameHandler = require('../domain/gomoku.js'); // Object under test
 
-### Add backend
+/**
+ * Test testing a game object returned by createGame has all
+ * necessary attributes.
+ */
+describe('given gameHandler', () => {
+  describe('when creating a game ', () => {
+    const game = gameHandler.createGame();
+    it('should have expected properties', () => {
+      expect(game).toHaveProperty('id'); //Id of game generated server side
+      expect(game).toHaveProperty('name'); // A name that is displayed
+      expect(game).toHaveProperty('round'); // Which round we currently play
+      expect(game).toHaveProperty('players'); // Players
+      expect(game).toHaveProperty('rows'); // How many rows our board has got
+      expect(game).toHaveProperty('cols'); // How many columns our board has got
+      expect(game).toHaveProperty('state'); // state of the game object = {playing, win1, win2, tie}
+    });
+  });
+});
 
-```bash
-mkdir {routes,controllers,domain}
-touch ./routes/gomoku_routes.js
-touch ./controllers/gomoku_controller.js
-touch ./routes/gomoku_routes.js
-touch ./domain/gomoku.js
-```
+/**
+ * Test testing a game object returned by addPlayer has all
+ * necessary attributes.
+ */
+describe('given gameHandler', () => {
+  describe('when adding player to a game ', () => {
+    const game = gameHandler.addPlayer();
+    it('should have expected properties', () => {
+      expect(game).toHaveProperty('id');
+      expect(game).toHaveProperty('name');
+      expect(game).toHaveProperty('round');
+      expect(game).toHaveProperty('player1');
+      expect(game).toHaveProperty('player2');
+      expect(game).toHaveProperty('player');
+      expect(game).toHaveProperty('state');
+    });
+  });
+});
 
-### Add testing
+/**
+ * Test testing a game object returned by playing a round has all
+ * necessary attributes.
+ */
+describe('given gameHandler', () => {
+  describe('when creating a game ', () => {
+    const game = gameHandler.play();
+    it('should have expected properties', () => {
+      expect(game).toHaveProperty('id');
+      expect(game).toHaveProperty('name');
+      expect(game).toHaveProperty('round');
+      expect(game).toHaveProperty('player1');
+      expect(game).toHaveProperty('player2');
+      expect(game).toHaveProperty('player');
+      expect(game).toHaveProperty('state');
+    });
+  });
+});
 
-```bash
-mkdir __tests__
-touch ./__tests__/{unit_tests.js,component_tests.js,integration_tests.js}
-touch service.js
-touch .env.test
-npm install -D jest
-npm install -D jest-runner-groups
-npm install -D supertest
-npm install -D @faker-js/faker
-npm pkg set scripts.test="jest  --group=-component --group=-integration"
-npm pkg set scripts.test:watch="jest --watchAll=true --passWithNoTests --group=-component --group=-integration"
-npm pkg set scripts.test:component="jest --group=component"
-npm pkg set scripts.test:integration="jest --group=integration"
-npm pkg set jest.runner="groups"
-echo "/**" > ./__tests__/unit_tests.js&echo " * @group unit" >> ./__tests__/unit_tests.js&echo " */" >> ./__tests__/unit_tests.js
-echo "/**" > ./__tests__/component_tests.js&echo " * @group component" >> ./__tests__/component_tests.js&echo " */" >> ./__tests__/component_tests.js
-echo "/**" > ./__tests__/integration_tests.js&echo " * @group integration" >> ./__tests__/integration_tests.js&echo " */" >> ./__tests__/integration_tests.js
-```
-### Create repository
-
-```bash
-git init
-curl -L https://gist.github.com/miwashiab/3378fc2e4ab5d2691fa5978822721796/raw/.gitignore -o .gitignore
-git add .
-git commit -m "Initial Commit"
 ```
 
 ### Test it
