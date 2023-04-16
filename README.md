@@ -63,6 +63,3 @@ Open Visual Studio Code, write the test, and then fullfill the requriements from
 code .
 npm run test:watch
 ```
-
-
-```
