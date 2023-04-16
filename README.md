@@ -43,8 +43,7 @@ We can now write our first unit test derived from the state changes.
 const gameHandler = require('../domain/gomoku.js'); // Objekt under test
 
 /**
- * Vårt första whitebox-test utifrån tillståndsförändringar i 
- * tillståndsdiagrammet för game.
+ * Tests identified from state diagram.
  */
 describe('given gameHandler', () => {
   describe('when using ', () => {
