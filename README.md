@@ -52,6 +52,10 @@ sequenceDiagram
         Player->>Service: New Game
         Service->>GameHandler: Create Game
         activate GameHandler
+        GameHandler->>Gomoku: create board
+        activate Gomoku
+        Gomoku->>GameHandler: board
+        deactivate Gomoku
         GameHandler-->>Service: Created Game
         deactivate GameHandler
     end
