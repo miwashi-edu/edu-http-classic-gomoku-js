@@ -78,7 +78,13 @@ sequenceDiagram
     deactivate Service
 ```
 
-## Tests
+## Instructions
+
+### We rename unit_tests.js to game_handler_tests.js
+
+```bash
+git mv ./__tests__/unit_tests.js ./__tests__/game_handler_tests.js
+```
 
 ### user_handler_tests.js
 
