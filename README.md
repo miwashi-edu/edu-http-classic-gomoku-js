@@ -1,14 +1,18 @@
 # edu-http-classic-gomoku-js
 
-## Expected time 6:30 minutest
+## Expected time very time consuming!
 
 ## Info
 
-In this part we will attempt to find requrements for our value-objects. We use a mockup of the game to try to determine what data is required to display a game trough it different states from create to end. We also assume that all methods will return a game object. 
+In this part we will attempt to find more detailed requrements, and identify domain objekts. As best it is performed by "dry" running the game, preferable with paper and pen and in a group. 
 
-Finally we also deduce that we also need a state attribute to respond to the end states of the game (win/loose, tie).
+It probably takes atleast ten to twenty iterations before you have identified all requirements.
 
-## Instructions
+The Sequence Diagram is part of UML, and an excellent tool when analyzing detailed requirements.
+
+We find that our GameHandler gets an additional method for listing games, and we also idenfify that we need a UserHandler, and a domain object for the game Gomoku itself. We also notice that very litle is actually the concern of the game itself.
+
+## Sequence Diagram of one game Gomoku.
 
 ```mermaid
 
@@ -69,3 +73,19 @@ sequenceDiagram
     end
     deactivate Service
 ```
+
+## Tests
+
+### user_handler_tests.js
+
+```js
+```
+### game_handler_tests.js
+
+```js
+```
+### gomoku_tests.js
+
+```js
+```
+
