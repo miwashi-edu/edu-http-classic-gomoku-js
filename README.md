@@ -32,8 +32,7 @@ describe('given gameHandler', () => {
       expect(game).toHaveProperty('id'); //Id of game generated server side
       expect(game).toHaveProperty('name'); // A name that is displayed
       expect(game).toHaveProperty('round'); // Which round we currently play
-      expect(game).toHaveProperty('player1'); // Id of player one
-      expect(game).toHaveProperty('player2'); // Id of player two
+      expect(game).toHaveProperty('players'); // Players
       expect(game).toHaveProperty('rows'); // How many rows our board has got
       expect(game).toHaveProperty('cols'); // How many columns our board has got
       expect(game).toHaveProperty('state'); // state of the game object = {playing, win1, win2, tie}
