@@ -1,6 +1,6 @@
 # edu-http-classic-gomoku-js
 
-## Expected time very time consuming!
+## Expected time: very time consuming!
 
 ## Info
 
