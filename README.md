@@ -80,10 +80,15 @@ sequenceDiagram
 
 ## Instructions
 
-### We rename unit_tests.js to game_handler_tests.js
+### Cleaning up files
 
 ```bash
 git mv ./__tests__/unit_tests.js ./__tests__/game_handler_tests.js
+git mv ./domain/gomoku.js ./domain/game_handler_tests.js
+touch ./__tests__/user_handler_tests.js
+touch ./__tests__/gomoku_tests.js
+touch ./domain/user_handler.js
+touch ./domain/gomoku.js
 ```
 
 ### user_handler_tests.js
