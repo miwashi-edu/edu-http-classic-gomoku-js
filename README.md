@@ -30,6 +30,7 @@ touch {service.js,server.js}
 touch .env
 npm pkg set main="service.js"
 npm pkg set scripts.dev="nodemon service.js"
+npm install dotenv
 npm install express
 npm install path
 npm install serve-favicon
