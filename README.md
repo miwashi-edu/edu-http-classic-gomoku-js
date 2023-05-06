@@ -68,12 +68,14 @@ sequenceDiagram
         Service->>GameHandler: Play
         activate GameHandler
         GameHandler->>Gomoku: play
+        activate Gomoku
         Gomoku->>GameHandler: game
+        deactivate Gomoku
         GameHandler->>Gomoku: isWin?
         activate Gomoku
         Gomoku->>GameHandler: true/false
         deactivate Gomoku
-        GameHandler->>Gomoku: isWin?
+        GameHandler->>Gomoku: isTie?
         activate Gomoku
         Gomoku->>GameHandler: true/false
         deactivate Gomoku
