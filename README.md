@@ -67,11 +67,12 @@ sequenceDiagram
         Player->>Service: Play Game
         Service->>GameHandler: Play
         activate GameHandler
-        GameHandler->>Gomoku: isFinished?
+        GameHandler->>Gomoku: play?
+        GameHandler->>Gomoku: isWin?
         activate Gomoku
         Gomoku->>GameHandler: true/false
         deactivate Gomoku
-        GameHandler->>Service: isFinished?
+        GameHandler->>Service: isTie?
         deactivate GameHandler
         Service-->>Player: Incremented Game
     end
