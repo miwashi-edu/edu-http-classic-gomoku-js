@@ -128,6 +128,25 @@ describe('given a gameHandler', () => {
 ### gomoku_tests.js
 
 ```js
+/**
+ * @group unit
+ */
+
+const gomokuHandler = require('../domain/gomoku.js');
+
+/**
+ * Tests determined from sequence diagram.
+ */
+  describe.skip('given a gomokuHandler', () => {
+    describe('when created', () => {
+      it('then should have expected properties', () => {
+        expect(gomokuHandler).toHaveProperty('play');
+        expect(gomokuHandler).toHaveProperty('isWin');
+        expect(gomokuHandler).toHaveProperty('isTie');
+        expect(gomokuHandler).toHaveProperty('createBoard');
+      });
+    });
+  });
 ```
 
 ## Test it
