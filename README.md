@@ -12,7 +12,8 @@
 [jest](https://www.npmjs.com/package/jest)  
 [jest-runner-groups](https://www.npmjs.com/package/@euklios/jest-runner-groups)  
 [supertest](https://www.npmjs.com/package/supertest)  
-[faker](https://www.npmjs.com/package/@faker-js/faker)
+[faker](https://www.npmjs.com/package/@faker-js/faker)  
+[uuid-validate](https://www.npmjs.com/package/uuid-validate)
 
 ## Instructions
 
@@ -68,6 +69,7 @@ touch service.js
 touch .env.test
 npm install -D jest
 npm install -D jest-runner-groups
+npm install -D uuid-validate
 npm install -D supertest
 npm install -D @faker-js/faker
 npm pkg set scripts.test="jest  --group=-component --group=-integration"
