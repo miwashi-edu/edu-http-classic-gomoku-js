@@ -36,6 +36,9 @@ npm install express
 npm install path
 npm install serve-favicon
 npm install uuid
+npm install cors
+npm install swagger-jsdoc
+npm install swagger-ui-express
 npm install -D nodemon 
 curl https://raw.githubusercontent.com/miwashi-edu/edu-http-classic-gomoku-js/main/resources/favicon.ico -o ./public/favicon.ico
 ```
