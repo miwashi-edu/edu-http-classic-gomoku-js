@@ -88,7 +88,7 @@ echo "/**" > ./__tests__/integration_tests.js&echo " * @group integration" >> ./
 
 ```bash
 git init
-curl -L https://gist.github.com/miwashiab/3378fc2e4ab5d2691fa5978822721796/raw/.gitignore -o .gitignore
+curl -L https://gist.github.com/miwashi/3378fc2e4ab5d2691fa5978822721796/raw/.gitignore -o .gitignore
 git add .
 git commit -m "Initial Commit"
 ```
