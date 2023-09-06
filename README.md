@@ -40,7 +40,6 @@ npm install cors
 npm install swagger-jsdoc
 npm install swagger-ui-express
 npm install -D nodemon 
-curl https://raw.githubusercontent.com/miwashi-edu/edu-http-classic-gomoku-js/main/resources/favicon.ico -o ./public/favicon.ico
 ```
 
 ### Add static frontend
@@ -51,6 +50,7 @@ mkdir public/img
 touch ./public/{index.html,index.js,index.css}
 curl https://raw.githubusercontent.com/miwashi-edu/edu-http-classic-gomoku-js/main/resources/black.png -o ./public/img/black.png
 curl https://raw.githubusercontent.com/miwashi-edu/edu-http-classic-gomoku-js/main/resources/white.png -o ./public/img/white.png
+curl https://raw.githubusercontent.com/miwashi-edu/edu-http-classic-gomoku-js/main/resources/favicon.ico -o ./public/favicon.ico
 ```
 
 ### Add backend
