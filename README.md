@@ -12,21 +12,20 @@ To break down the story we are going to use a state diagram. Here is the user st
 
 ```mermaid
 ---
-title: Game
+title: Gomoku
 ---
 stateDiagram-v2
-    [*] --> Waiting : create game
+    [*] --> Waiting : Create Game
     Waiting --> Playing : play
-    Waiting --> Waiting: add player 
+    Waiting --> Waiting : addPlayer
+
     state Playing {
+        [*] --> Incremented
         Incremented --> Incremented : play
-        Incremented --> Ended : win condition
-        Incremented --> Cancelled : player quit
-        Incremented --> Tie : no more moves
+        Incremented --> [*] : isWin
+        Incremented --> [*] : isCancelled
+        Incremented --> [*] : isTie
     }
-    Cancelled --> [*]
-    Ended --> [*]
-    Tie --> [*]
 ```
 
 ## Instructions
