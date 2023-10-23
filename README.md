@@ -15,17 +15,22 @@ To break down the story we are going to use a state diagram. Here is the user st
 title: Gomoku
 ---
 stateDiagram-v2
-    [*] --> Waiting : Create Game
+    [*] --> Waiting : createGame
     Waiting --> Playing : play
     Waiting --> Waiting : addPlayer
 
     state Playing {
         [*] --> Incremented
         Incremented --> Incremented : play
-        Incremented --> [*] : isWin
-        Incremented --> [*] : isCancelled
-        Incremented --> [*] : isTie
+        Incremented --> Win : isWin
+        Incremented --> Cancelled : isCancelled
+        Incremented --> Tie : isTie
     }
+
+    Win --> [*]
+    Cancelled --> [*]
+    Tie --> [*]
+
 ```
 
 ## Instructions
